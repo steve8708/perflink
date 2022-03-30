@@ -45,11 +45,47 @@ export default ({ state, dispatch }) => {
         onInput=${e => dispatch({ title: e.target.value })}
         value=${title}
       />
+
+      <div className=${style.source}>
+        <div>
+          Hosted with ❤️ by <a target="_blank" href="https://www.builder.io">
+            <img height="138" width="484" className=${style.builderLogo} src="https://cdn.builder.io/api/v1/image/assets%2F7f7bbcf72a1a4d72bac5daa359e7befd%2F20b025f52bc54614822a712532983a6a" />
+          </a>
+        </div>
+        <div className=${style.links}>
+          <a className=${style.link} target="_blank" href="https://github.com/steve8708/perflink">Source</a>
+          •
+          <a className=${style.link} target="_blank" href="https://github.com/lukejacksonn/perflink">Credit</a>
+        </div>
+      </div>
     </aside>
   `
 }
 
 const style = {
+  builderLogo: css`
+    height: auto;
+    width: 120px;
+    vertical-align: middle;
+  `,
+  link: css`
+    margin: 5px;
+    display: inline-block;
+  `,
+  links: css`
+    margin-top: 15px;
+    font-size: 12px;
+
+    & a {
+      color: #999;
+    }
+  `,
+  source: css`
+    margin-top: 70px;
+    text-align: center;
+    color: #999;
+    margin-bottom: -30px;
+  `,
   aside: css`
     grid-area: graph;
 

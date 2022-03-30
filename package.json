@@ -1,0 +1,21 @@
+{
+  "name": "@builder.io/perflink",
+  "version": "1.0.0",
+  "description": "JavaScript performance benchmarks you can share via URL",
+  "scripts": {
+    "serve": "http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steve8708/perflink.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/steve8708/perflink/issues"
+  },
+  "homepage": "https://github.com/steve8708/perflink#readme",
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  }
+}
