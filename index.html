@@ -23,16 +23,6 @@
     />
     <meta property="og:url" content="https://perf.link" />
     <meta name="twitter:card" content="summary_large_image" />
-    <script>
-      ;(function () {
-        var redirect = sessionStorage.redirect
-        delete sessionStorage.redirect
-        if (redirect && redirect != location.href)
-          history.replaceState(null, null, redirect)
-      })()
-      let vh = window.innerHeight * 0.01
-      document.documentElement.style.setProperty('--vh', `${vh}px`)
-    </script>
     <link rel="stylesheet" href="/index.css" />
     <script defer src="/library/prism.js"></script>
     <script src="/index.js" type="module"></script>
