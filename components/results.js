@@ -55,7 +55,7 @@ export default ({ state, dispatch }) => {
         <div className=${style.links}>
           <a className=${style.link} target="_blank" href="https://github.com/steve8708/perflink">Source</a>
           •
-          <a className=${style.link} target="_blank" href="https://github.com/lukejacksonn/perflink">Credit</a>
+          <a className=${style.link} target="_blank" href="https://github.com/lukejacksonn/perflink">Credit: Luke Jackson</a>
         </div>
       </div>
     </aside>
@@ -65,7 +65,8 @@ export default ({ state, dispatch }) => {
 const style = {
   builderLogo: css`
     height: auto;
-    width: 120px;
+    width: 100px;
+    margin-left: 3px;
     vertical-align: middle;
   `,
   link: css`
