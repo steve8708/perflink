@@ -37,10 +37,12 @@ const defaults = {
   ],
 }
 
-const init = location.hash
+const q = new URL(location.href).searchParams.get('q')
+
+const init = q
   ? {
       ...defaults,
-      ...decodeState(location.hash.slice(1)),
+      ...decodeState(q),
     }
   : defaults
 
@@ -104,7 +106,7 @@ const app = () => {
       })),
       updated: new Date(),
     })
-    history.replaceState(null, null, `#${encodeURIComponent(btoa(x))}`)
+    history.replaceState(null, null, `?q=${encodeURIComponent(btoa(x))}`)
     if (Object.fromEntries(suites)[id]) {
       localStorage.setItem(id, x)
       dispatch(latestLocalStorage)
