@@ -9,40 +9,46 @@ import {
 
 import { RemoveIcon, SearchIcon, LinkIcon, ArchiveIcon } from './icons.js'
 
-const suite = (dispatch) => ([id, { title, before, tests, updated }]) =>
-  html`
-    <li className=${style.item}>
-      <div
-        key=${id}
-        onClick=${() =>
-          dispatch({ id, title, before, tests, aside: 'results' })}
-      >
-        <h4>${title}</h4>
-        <small>
-          ${tests.length} test cases updated ${timeSince(new Date(updated))} ago
-        </small>
-      </div>
-      <button
-        onClick=${() =>
-          copyHashURL({
-            title,
-            before,
-            tests,
-            updated: new Date(),
-          })}
-      >
-        <${LinkIcon} />
-      </button>
-      <button
-        onClick=${() => {
-          localStorage.removeItem(id)
-          dispatch(latestLocalStorage)
-        }}
-      >
-        <${RemoveIcon} />
-      </button>
-    </li>
-  `
+const suite =
+  (dispatch) =>
+  ([id, { title, before, tests, updated }]) =>
+    html`
+      <li className=${style.item}>
+        <div
+          key=${id}
+          onClick=${() =>
+            dispatch({ id, title, before, tests, aside: 'results' })}
+        >
+          <h4>${title}</h4>
+          <small>
+            ${tests.length} test cases updated ${timeSince(new Date(updated))}
+            ago
+          </small>
+        </div>
+        <button
+          onClick=${() =>
+            copyHashURL({
+              title,
+              before,
+              tests: tests.map((item) => ({
+                ...item,
+                runs: [],
+              })),
+              updated: new Date(),
+            })}
+        >
+          <${LinkIcon} />
+        </button>
+        <button
+          onClick=${() => {
+            localStorage.removeItem(id)
+            dispatch(latestLocalStorage)
+          }}
+        >
+          <${RemoveIcon} />
+        </button>
+      </li>
+    `
 
 export default ({ state, dispatch }) => {
   const { suites, searchTerm, aside } = state

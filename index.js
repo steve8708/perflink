@@ -94,7 +94,16 @@ const app = () => {
   }, [started, before, tests])
 
   useEffect(() => {
-    const x = JSON.stringify({ id, title, before, tests, updated: new Date() })
+    const x = JSON.stringify({
+      id,
+      title,
+      before,
+      tests: tests.map((item) => ({
+        ...item,
+        runs: [],
+      })),
+      updated: new Date(),
+    })
     history.replaceState(null, null, `#${encodeURIComponent(btoa(x))}`)
     if (Object.fromEntries(suites)[id]) {
       localStorage.setItem(id, x)
