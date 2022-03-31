@@ -27,7 +27,7 @@ const defaults = {
   progress: 0,
   id: uid(),
   searchTerm: '',
-  title: 'Finding numbers in an array of 1000',
+  title: 'Finding numbers in an array',
   before: `const data = [...Array(1000).keys()]`,
   tests: [
     { name: 'Find item 100', code: 'data.find(x => x == 100)', ops: 203360 },
