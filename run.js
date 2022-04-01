@@ -14,6 +14,7 @@ onmessage = async e => {
         return ops;
       }`)()
     } catch (e) {
+      console.error('Error in test:', e)
       result = -1
     }
     postMessage(result === -1 ? result : (result * (1000 / duration)) << 0)

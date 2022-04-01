@@ -1,4 +1,4 @@
-onmessage = async e => {
+onmessage = async (e) => {
   const test = e.data[0]
   let time
   ;(async () => {
@@ -12,6 +12,7 @@ onmessage = async e => {
       }`)()
     } catch (e) {
       time = -1
+      console.error('Error in test:', e)
     }
     postMessage(time)
   })()
