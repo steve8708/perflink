@@ -141,11 +141,26 @@ export default ({ state, dispatch }) => {
           `
         )}
       </ul>
-    </article>
+
+      <div>
+        🚩 Please note that micro benchmarking is 
+        ${' '}
+        <a 
+          target="_blank" 
+          className=${style.link} 
+          href="https://mrale.ph/blog/2012/12/15/microbenchmarks-fairy-tale.html">
+            riddled with caveats
+        </a> due to how VMs cache and optimize repeatedly run code.
+        Take the results with a big grain of salt. 🚩
+      </div>
+    </article> 
   `
 }
 
 const style = {
+  link: css`
+    color: white !important;
+  `,
   editor: {
     width: '100%',
     backgroundColor: '#2a2b2f',

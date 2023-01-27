@@ -48,8 +48,8 @@ export default ({ state, dispatch }) => {
 
       <div className=${style.source}>
         <div>
-          Hosted with ❤️ by <a target="_blank" href="https://www.builder.io">
-            <img height="138" width="484" className=${style.builderLogo} src="https://cdn.builder.io/api/v1/image/assets%2F7f7bbcf72a1a4d72bac5daa359e7befd%2F20b025f52bc54614822a712532983a6a" />
+          Provided with ❤️ by <a target="_blank" href="https://www.builder.io">
+            <img height="138" width="484" className=${style.builderLogo} src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F4552cad266e64b24801f5321c829f1ca?width=500" />
           </a>
         </div>
         <div className=${style.links}>
@@ -67,6 +67,7 @@ const style = {
     height: auto;
     width: 100px;
     margin-left: 3px;
+    margin-top: -2px;
     vertical-align: middle;
   `,
   link: css`

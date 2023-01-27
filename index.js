@@ -13,7 +13,6 @@ import {
 } from './utils.js'
 
 import Tests from './components/tests.js'
-import Archive from './components/archive.js'
 import Results from './components/results.js'
 
 const { render, useReducer, useEffect } = preact
@@ -131,7 +130,6 @@ const app = () => {
     <main className="app">
       <${Tests} state=${state} dispatch=${dispatch} />
       <${Results} state=${state} dispatch=${dispatch} />
-      <${Archive} state=${state} dispatch=${dispatch} />
     </main>
   `
 }
