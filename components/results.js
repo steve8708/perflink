@@ -1,7 +1,7 @@
 import { html, css, getColorForPercent } from '../utils.js'
 
-const Bar = tests => (test, i) => {
-  const max = Math.max(...tests.map(x => x.ops))
+const Bar = (tests) => (test, i) => {
+  const max = Math.max(...tests.map((x) => x.ops))
   const percent = test.ops ? (test.ops / max) * 100 : 0
   return html`
     <div className=${style.result}>
@@ -23,9 +23,7 @@ const Bar = tests => (test, i) => {
         ${test.ops === -1 || test.ops === -2
           ? `${0}%`
           : test.ops === 0
-          ? html`
-              <img className=${style.spinner} src="/spinner.gif" />
-            `
+          ? html` <img className=${style.spinner} src="/spinner.gif" /> `
           : `${percent << 0}%`}
       </div>
     </div>
@@ -37,25 +35,53 @@ export default ({ state, dispatch }) => {
   return html`
     <aside className=${style.aside}>
       <div className=${style.graph}>
-        ${tests.filter(x => x.ops !== -2).map(Bar(tests))}
+        ${tests.filter((x) => x.ops !== -2).map(Bar(tests))}
       </div>
       <input
         disabled=${started}
         className=${style.title}
-        onInput=${e => dispatch({ title: e.target.value })}
+        onInput=${(e) => dispatch({ title: e.target.value })}
         value=${title}
       />
 
+      <div className=${style.warning}>
+        Please note that microbenchmarking is ${' '}
+        <a
+          target="_blank"
+          className=${style.caveateLink}
+          href="https://mrale.ph/blog/2012/12/15/microbenchmarks-fairy-tale.html"
+        >
+          riddled with caveats
+        </a>. <br />
+        Take the results with a big grain of salt.
+      </div>
+
       <div className=${style.source}>
         <div>
-          Provided with ❤️ by <a target="_blank" href="https://www.builder.io">
-            <img height="138" width="484" className=${style.builderLogo} src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F4552cad266e64b24801f5321c829f1ca?width=500" />
+          Provided with ❤️ by
+          <a target="_blank" href="https://www.builder.io">
+            <img
+              height="138"
+              width="484"
+              className=${style.builderLogo}
+              src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F4552cad266e64b24801f5321c829f1ca?width=500"
+            />
           </a>
         </div>
         <div className=${style.links}>
-          <a className=${style.link} target="_blank" href="https://github.com/steve8708/perflink">Source</a>
+          <a
+            className=${style.link}
+            target="_blank"
+            href="https://github.com/steve8708/perflink"
+            >Source</a
+          >
           •
-          <a className=${style.link} target="_blank" href="https://github.com/lukejacksonn/perflink">Credit: Luke Jackson</a>
+          <a
+            className=${style.link}
+            target="_blank"
+            href="https://github.com/lukejacksonn/perflink"
+            >Credit: Luke Jackson</a
+          >
         </div>
       </div>
     </aside>
@@ -63,12 +89,21 @@ export default ({ state, dispatch }) => {
 }
 
 const style = {
+  warning: css`
+    margin-top: 1rem;
+    color: #999;
+    text-align: center;
+    font-size: 0.9rem;
+  `,
   builderLogo: css`
     height: auto;
     width: 100px;
     margin-left: 3px;
     margin-top: -2px;
     vertical-align: middle;
+  `,
+  caveateLink: css`
+    color: #ccc !important;
   `,
   link: css`
     margin: 5px;
@@ -83,7 +118,7 @@ const style = {
     }
   `,
   source: css`
-    margin-top: 70px;
+    margin-top: 30px;
     text-align: center;
     color: #999;
     margin-bottom: -30px;
