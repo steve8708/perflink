@@ -45,10 +45,10 @@ export default ({ state, dispatch }) => {
       />
 
       <div className=${style.warning}>
-        Please note that microbenchmarking is ${' '}
+        Microbenchmarking is ${' '}
         <a
           target="_blank"
-          className=${style.caveateLink}
+          className=${style.caveatLink}
           href="https://mrale.ph/blog/2012/12/15/microbenchmarks-fairy-tale.html"
         >
           riddled with caveats
@@ -94,6 +94,7 @@ const style = {
     color: #999;
     text-align: center;
     font-size: 0.9rem;
+    line-height: 1.2rem;
   `,
   builderLogo: css`
     height: auto;
@@ -102,7 +103,7 @@ const style = {
     margin-top: -2px;
     vertical-align: middle;
   `,
-  caveateLink: css`
+  caveatLink: css`
     color: #ccc !important;
   `,
   link: css`
