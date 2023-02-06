@@ -1,5 +1,8 @@
 import { html, css, getColorForPercent } from '../utils.js'
 
+const useMinimalMode =
+  new URL(location.href).searchParams.get('minimal') === 'true'
+
 const Bar = (tests) => (test, i) => {
   const max = Math.max(...tests.map((x) => x.ops))
   const percent = test.ops ? (test.ops / max) * 100 : 0
@@ -44,7 +47,7 @@ export default ({ state, dispatch }) => {
         value=${title}
       />
 
-      <div className=${style.warning}>
+      <div className=${style.warning} style="display: ${useMinimalMode ? 'none' : 'block'}">
         Microbenchmarking is ${' '}
         <a
           target="_blank"
@@ -109,6 +112,11 @@ const style = {
   link: css`
     margin: 5px;
     display: inline-block;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   `,
   links: css`
     margin-top: 15px;
@@ -181,7 +189,7 @@ const style = {
     margin-top: 1rem;
     height: 1rem;
     text-align: center;
-    font-weight: 100;
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.5);
   `,
   spinner: css`
