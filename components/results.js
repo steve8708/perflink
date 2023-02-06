@@ -60,6 +60,21 @@ export default ({ state, dispatch }) => {
           </a>
         </div>
 
+        <div
+          className=${style.warning}
+          style="display: ${useMinimalMode ? 'none' : 'block'}"
+        >
+          Microbenchmarking is ${' '}
+          <a
+            target="_blank"
+            className=${style.caveatLink}
+            href="https://mrale.ph/blog/2012/12/15/microbenchmarks-fairy-tale.html"
+          >
+            riddled with caveats </a
+          >. <br />
+          Take the results with a grain of salt.
+        </div>
+
         <div className=${style.links}>
           <a
             className=${style.link}
@@ -75,21 +90,6 @@ export default ({ state, dispatch }) => {
             >Credit: Luke Jackson</a
           >
         </div>
-
-        <div
-          className=${style.warning}
-          style="display: ${useMinimalMode ? 'none' : 'block'}"
-        >
-          Microbenchmarking is ${' '}
-          <a
-            target="_blank"
-            className=${style.caveatLink}
-            href="https://mrale.ph/blog/2012/12/15/microbenchmarks-fairy-tale.html"
-          >
-            riddled with caveats </a
-          >. <br />
-          Take the results with a grain of salt.
-        </div>
       </div>
     </aside>
   `
@@ -97,7 +97,7 @@ export default ({ state, dispatch }) => {
 
 const style = {
   warning: css`
-    margin-top: 1rem;
+    margin-top: 50px;
     color: #999;
     text-align: center;
     font-size: 0.8rem;
@@ -128,8 +128,8 @@ const style = {
     }
   `,
   links: css`
-    margin-top: 15px;
-    font-size: 12px;
+    margin-top: 10px;
+    font-size: 14px;
 
     & a {
       color: #999;
@@ -149,7 +149,7 @@ const style = {
     flex-direction: column;
     justify-content: center;
 
-    padding: 3rem 3rem 4rem;
+    padding: 3rem;
     overflow-x: auto;
     max-width: 100vw;
 
