@@ -100,7 +100,7 @@ const style = {
     margin-top: 50px;
     color: #999;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 14px;
     line-height: 1.2rem;
   `,
   builderLogo: css`
