@@ -47,18 +47,6 @@ export default ({ state, dispatch }) => {
         value=${title}
       />
 
-      <div className=${style.warning} style="display: ${useMinimalMode ? 'none' : 'block'}">
-        Microbenchmarking is ${' '}
-        <a
-          target="_blank"
-          className=${style.caveatLink}
-          href="https://mrale.ph/blog/2012/12/15/microbenchmarks-fairy-tale.html"
-        >
-          riddled with caveats
-        </a>. <br />
-        Take the results with a big grain of salt.
-      </div>
-
       <div className=${style.source}>
         <div>
           Provided with ❤️ by
@@ -71,6 +59,7 @@ export default ({ state, dispatch }) => {
             />
           </a>
         </div>
+
         <div className=${style.links}>
           <a
             className=${style.link}
@@ -86,6 +75,21 @@ export default ({ state, dispatch }) => {
             >Credit: Luke Jackson</a
           >
         </div>
+
+        <div
+          className=${style.warning}
+          style="display: ${useMinimalMode ? 'none' : 'block'}"
+        >
+          Microbenchmarking is ${' '}
+          <a
+            target="_blank"
+            className=${style.caveatLink}
+            href="https://mrale.ph/blog/2012/12/15/microbenchmarks-fairy-tale.html"
+          >
+            riddled with caveats </a
+          >. <br />
+          Take the results with a grain of salt.
+        </div>
       </div>
     </aside>
   `
@@ -96,7 +100,7 @@ const style = {
     margin-top: 1rem;
     color: #999;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1.2rem;
   `,
   builderLogo: css`
@@ -108,6 +112,11 @@ const style = {
   `,
   caveatLink: css`
     color: #ccc !important;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   `,
   link: css`
     margin: 5px;
