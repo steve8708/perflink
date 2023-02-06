@@ -99,7 +99,7 @@ const style = {
   builderLogo: css`
     height: auto;
     width: 100px;
-    margin-left: 3px;
+    margin-left: 6px;
     margin-top: -2px;
     vertical-align: middle;
   `,
@@ -123,6 +123,7 @@ const style = {
     text-align: center;
     color: #999;
     margin-bottom: -30px;
+    font-size: 16px;
   `,
   aside: css`
     grid-area: graph;
